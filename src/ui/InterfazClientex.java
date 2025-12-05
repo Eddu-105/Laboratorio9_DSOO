@@ -40,30 +40,35 @@ public class InterfazClientex extends javax.swing.JPanel {
 
         btnVerC.setBackground(new java.awt.Color(0, 134, 190));
         btnVerC.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        btnVerC.setForeground(new java.awt.Color(255, 255, 255));
         btnVerC.setText("Ver cuenta");
         btnVerC.setBorder(null);
         btnVerC.addActionListener(this::btnVerCActionPerformed);
 
         btnVerM.setBackground(new java.awt.Color(0, 134, 190));
         btnVerM.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        btnVerM.setForeground(new java.awt.Color(255, 255, 255));
         btnVerM.setText("Ver Movimientos");
         btnVerM.setBorder(null);
         btnVerM.addActionListener(this::btnVerMActionPerformed);
 
         btnDepositar.setBackground(new java.awt.Color(0, 134, 190));
         btnDepositar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        btnDepositar.setForeground(new java.awt.Color(255, 255, 255));
         btnDepositar.setText("Depositar");
         btnDepositar.setBorder(null);
         btnDepositar.addActionListener(this::btnDepositarActionPerformed);
 
         btnRetirar.setBackground(new java.awt.Color(0, 134, 190));
         btnRetirar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        btnRetirar.setForeground(new java.awt.Color(255, 255, 255));
         btnRetirar.setText("Retirar");
         btnRetirar.setBorder(null);
         btnRetirar.addActionListener(this::btnRetirarActionPerformed);
 
         btnSalir.setBackground(new java.awt.Color(0, 134, 190));
         btnSalir.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("Salir");
         btnSalir.addActionListener(this::btnSalirActionPerformed);
 
