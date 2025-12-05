@@ -43,19 +43,27 @@ public class VentanaLogin extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        txtConstrasena.setBackground(new java.awt.Color(255, 255, 255));
         txtConstrasena.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtConstrasena.setText("********");
         txtConstrasena.setBorder(null);
+        txtConstrasena.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtConstrasenaMousePressed(evt);
+            }
+        });
         txtConstrasena.addActionListener(this::txtConstrasenaActionPerformed);
 
-        txtUsuario.setBackground(new java.awt.Color(255, 255, 255));
         txtUsuario.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         txtUsuario.setText("Ingrese su usuario");
         txtUsuario.setBorder(null);
+        txtUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtUsuarioMousePressed(evt);
+            }
+        });
+        txtUsuario.addActionListener(this::txtUsuarioActionPerformed);
 
         jLabel3.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Iniciar Sesión");
         jLabel3.setToolTipText("");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -73,14 +81,11 @@ public class VentanaLogin extends javax.swing.JFrame {
         jLabel4.setText("jLabel4");
 
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("USUARIO");
 
         jLabel7.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("CONTRASEÑA");
 
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/favicon.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -164,7 +169,6 @@ public class VentanaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtConstrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConstrasenaActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_txtConstrasenaActionPerformed
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
@@ -206,6 +210,17 @@ public class VentanaLogin extends javax.swing.JFrame {
             "Error", JOptionPane.ERROR_MESSAGE);
     }
     }//GEN-LAST:event_btnOkActionPerformed
+
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+    }//GEN-LAST:event_txtUsuarioActionPerformed
+
+    private void txtUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUsuarioMousePressed
+       txtUsuario.setText("");
+    }//GEN-LAST:event_txtUsuarioMousePressed
+
+    private void txtConstrasenaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtConstrasenaMousePressed
+        txtConstrasena.setText("");
+    }//GEN-LAST:event_txtConstrasenaMousePressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnOk;
