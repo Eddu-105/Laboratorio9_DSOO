@@ -106,7 +106,7 @@ public class CrearCuenta extends javax.swing.JPanel {
 
         jLabel8.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Bienvenido Administrador");
+        jLabel8.setText("Bienvenido ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -289,15 +289,7 @@ public class CrearCuenta extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
-    private javax.swing.JButton btnEnviar1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -305,25 +297,15 @@ public class CrearCuenta extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JTextField labelIDDNI;
-    private javax.swing.JTextField labelIDDNI1;
     private javax.swing.JTextField labelNCuenta;
-    private javax.swing.JTextField labelNCuenta1;
     private javax.swing.JTextField labelSaldo;
-    private javax.swing.JTextField labelSaldo1;
     private javax.swing.JTextField labelTipo;
-    private javax.swing.JTextField labelTipo1;
     private javax.swing.JLabel txtRegistrarE;
-    private javax.swing.JLabel txtRegistrarE1;
     // End of variables declaration//GEN-END:variables
 }

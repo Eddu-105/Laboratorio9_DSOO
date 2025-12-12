@@ -4,6 +4,7 @@ import com.mycompany.laboratorio9.services.Banco;
 import java.awt.Color;
 import javax.swing.JFrame;
 import ui.Administrador.ConsultarMovimientos;
+import ui.Administrador.CrearCuenta;
 import ui.Administrador.Depositar;
 import ui.Administrador.Retirar;
 import ui.Administrador.Transferir;
@@ -251,7 +252,7 @@ public class InterfazEmpleadox extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnCrearCuCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearCuCActionPerformed
-        CrearCuentaCliente crearccli = new CrearCuentaCliente(banco);
+        CrearCuenta crearccli = new CrearCuenta(banco);
         JFrame c = new JFrame();
         c.add(crearccli);
         c.pack();

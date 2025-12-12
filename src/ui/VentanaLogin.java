@@ -44,6 +44,7 @@ public class VentanaLogin extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        txtConstrasena.setBackground(new java.awt.Color(255, 255, 255));
         txtConstrasena.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtConstrasena.setText("********");
         txtConstrasena.setBorder(null);
@@ -54,6 +55,7 @@ public class VentanaLogin extends javax.swing.JFrame {
         });
         txtConstrasena.addActionListener(this::txtConstrasenaActionPerformed);
 
+        txtUsuario.setBackground(new java.awt.Color(255, 255, 255));
         txtUsuario.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         txtUsuario.setText("Ingrese su usuario");
         txtUsuario.setBorder(null);

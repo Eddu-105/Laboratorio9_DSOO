@@ -5,9 +5,12 @@ import com.mycompany.laboratorio9.models.Cuenta;
 import com.mycompany.laboratorio9.models.Empleado;
 import com.mycompany.laboratorio9.models.Transferencia;
 import com.mycompany.laboratorio9.services.Banco;
+import java.sql.SQLException;
 import java.awt.Color;
 import javax.swing.JOptionPane;
-import models.TransferenciaDAO;
+import models.Conector;
+import models.CuentaDAO;
+import java.sql.Connection;
 
 public class Transferir extends javax.swing.JPanel {
     
@@ -329,7 +332,13 @@ public class Transferir extends javax.swing.JPanel {
     );
     transferencia.procesar();
     
-
+    try (Connection con = Conector.getConexion()) {
+        CuentaDAO cuentaDAO = new CuentaDAO(con);
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error de conexión con la base de datos.");
+    }
+    
     JOptionPane.showMessageDialog(this,
             String.format("Transferencia realizada.\nSaldo origen: S/ %.2f\nSaldo destino: S/ %.2f",
                     cuentaOrigen.getSaldo(), cuentaDestino.getSaldo()));

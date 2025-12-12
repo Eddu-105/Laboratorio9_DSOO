@@ -68,7 +68,7 @@ public class EliminarCliente extends javax.swing.JPanel {
 
         jLabel5.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Bienvenido Administrador");
+        jLabel5.setText("Bienvenido ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
