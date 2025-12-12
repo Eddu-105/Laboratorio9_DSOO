@@ -59,4 +59,16 @@ public class CuentaDAO {
             return false;
         }
     }
+    
+    public boolean eliminarCuenta(String numero) {
+        String sql = "DELETE FROM cuenta WHERE numero = ?";
+        try {
+            PreparedStatement ps = conexion.prepareStatement(sql);
+            ps.setString(1, numero);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

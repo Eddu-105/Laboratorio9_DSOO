@@ -4,6 +4,10 @@ import com.mycompany.laboratorio9.models.Empleado;
 import com.mycompany.laboratorio9.services.Banco;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import models.Conector;
+import models.EliminarEmpleadoDAO;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 public class EliminarEmpleado extends javax.swing.JPanel {
     
@@ -164,6 +168,18 @@ public class EliminarEmpleado extends javax.swing.JPanel {
         }
 
         banco.getEmpleados().remove(empleadoEncontrado);
+        
+        try (Connection con = Conector.getConexion()) {
+            EliminarEmpleadoDAO empleadoDAO = new EliminarEmpleadoDAO(con);
+            boolean eliminado = empleadoDAO.eliminarEmpleado(empleadoEncontrado.getIdEmpleado());
+
+            if (!eliminado) {
+                JOptionPane.showMessageDialog(this, "Error al eliminar el empleado en la base de datos.");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error de conexión con la base de datos.");
+        }
 
         JOptionPane.showMessageDialog(this, "Empleado eliminado correctamente.");
 

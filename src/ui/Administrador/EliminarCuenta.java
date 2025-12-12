@@ -5,6 +5,10 @@ import com.mycompany.laboratorio9.models.Cuenta;
 import com.mycompany.laboratorio9.services.Banco;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import models.Conector;
+import java.sql.Connection;
+import java.sql.SQLException;
+import models.CuentaDAO;
 
 
 public class EliminarCuenta extends javax.swing.JPanel {
@@ -172,7 +176,20 @@ public class EliminarCuenta extends javax.swing.JPanel {
         for (Cliente titular : cuentaAEliminar.getTitulares()) {
             titular.getCuentas().remove(cuentaAEliminar);
         }
+        
+        // Actualizar en la base de datos
+        try (Connection con = Conector.getConexion()) {
+            CuentaDAO cuentaDAO = new CuentaDAO(con);
+            boolean eliminado = cuentaDAO.eliminarCuenta(cuentaAEliminar.getNumero());
 
+            if (!eliminado) {
+                JOptionPane.showMessageDialog(this, "Error al eliminar la cuenta en la base de datos.");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error de conexión con la base de datos.");
+        }
+        
         JOptionPane.showMessageDialog(this, "Cuenta eliminada correctamente.");
 
         labelNCuenta.setText("");
