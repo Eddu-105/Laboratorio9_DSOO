@@ -7,6 +7,8 @@ import com.mycompany.laboratorio9.models.Retiro;
 import com.mycompany.laboratorio9.services.Banco;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import java.sql.*;
+import models.RetiroDAO;
 
 public class Retirar extends javax.swing.JPanel {
 
@@ -106,7 +108,7 @@ public class Retirar extends javax.swing.JPanel {
 
         jLabel8.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Bienvenido Administrador");
+        jLabel8.setText("Bienvenido ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -121,23 +123,24 @@ public class Retirar extends javax.swing.JPanel {
                             .addComponent(jLabel8)
                             .addComponent(txtRegistrarE)
                             .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
                         .addComponent(jLabel7)
                         .addGap(12, 12, 12))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(labelNCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
-                            .addComponent(jSeparator1)
-                            .addComponent(jLabel3)
-                            .addComponent(labelIDDNIEm)
-                            .addComponent(jSeparator2)
-                            .addComponent(jLabel4)
-                            .addComponent(labelIDDNICli)
-                            .addComponent(jSeparator3)
-                            .addComponent(jLabel1)
-                            .addComponent(labelMonto)
-                            .addComponent(btnRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSeparator4))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(labelNCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+                                .addComponent(jSeparator1)
+                                .addComponent(labelIDDNIEm)
+                                .addComponent(jSeparator2)
+                                .addComponent(jLabel4)
+                                .addComponent(labelIDDNICli)
+                                .addComponent(jSeparator3)
+                                .addComponent(jLabel1)
+                                .addComponent(labelMonto)
+                                .addComponent(btnRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jSeparator4))
+                            .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -162,15 +165,15 @@ public class Retirar extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelIDDNIEm, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelIDDNICli, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelIDDNIEm, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -292,6 +295,14 @@ public class Retirar extends javax.swing.JPanel {
             clienteTitular
     );
     retiro.procesar();
+    
+    boolean guardado = retiro.guardarEnBD();
+
+    if (!guardado) {
+        JOptionPane.showMessageDialog(this, "El retiro se realizó, pero no se guardó en la base de datos.");
+    } else {
+        JOptionPane.showMessageDialog(this, String.format("Retiro realizado.\nSaldo actual: S/ %.2f", cuentaOrigen.getSaldo()));
+    }
     
     System.out.println("→ LLEGÓ A LA CONFIRMACIÓN");
     JOptionPane.showMessageDialog(this,

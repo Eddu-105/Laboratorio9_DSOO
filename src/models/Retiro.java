@@ -4,6 +4,7 @@ import com.mycompany.laboratorio9.models.Transaccion;
 import com.mycompany.laboratorio9.models.Cliente;
 import java.time.LocalDateTime;
 import javax.swing.*;
+import models.RetiroDAO;
 
 public class Retiro extends Transaccion {
 
@@ -19,5 +20,15 @@ public class Retiro extends Transaccion {
     @Override
     public void procesar() {
         cuenta.debitar(monto, this);
+    }
+    
+    public boolean guardarEnBD() {
+        RetiroDAO retiroDAO = new RetiroDAO();
+        return retiroDAO.registrarRetiro(
+                cuenta.getNumero(), 
+                cliente.getIdCliente(), 
+                empleado.getIdEmpleado(), 
+                monto
+        );
     }
 }

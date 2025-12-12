@@ -5,6 +5,7 @@ import com.mycompany.laboratorio9.models.Transaccion;
 import com.mycompany.laboratorio9.models.Cliente;
 import java.time.LocalDateTime;
 import javax.swing.*;
+import models.DepositoDAO;
 
 public class Deposito extends Transaccion {
 
@@ -20,5 +21,15 @@ public class Deposito extends Transaccion {
     @Override
     public void procesar() {
         cuenta.acreditar(monto, this);
+    }
+    
+     public boolean guardarEnBD() {
+        DepositoDAO dao = new DepositoDAO();
+        return dao.registrarDeposito(
+                cuenta.getNumero(),       
+                cliente.getIdCliente(),    
+                empleado.getIdEmpleado(),
+                (double) monto             
+        );
     }
 }

@@ -4,6 +4,9 @@ import com.mycompany.laboratorio9.services.Banco;
 import java.awt.Color;
 import javax.swing.JFrame;
 import ui.Administrador.ConsultarMovimientos;
+import ui.Administrador.Depositar;
+import ui.Administrador.Retirar;
+import ui.Administrador.Transferir;
 import ui.Empleado.ConsultarCliente;
 import ui.Empleado.DepositarCliente;
 import ui.Empleado.CrearCuentaCliente;
@@ -257,7 +260,7 @@ public class InterfazEmpleadox extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCrearCuCActionPerformed
 
     private void btnDepositarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositarCActionPerformed
-        DepositarCliente depositarc = new DepositarCliente(banco);
+        Depositar depositarc = new Depositar(banco);
         JFrame m = new JFrame();
         m.add(depositarc);
         m.pack();
@@ -266,7 +269,7 @@ public class InterfazEmpleadox extends javax.swing.JPanel {
     }//GEN-LAST:event_btnDepositarCActionPerformed
 
     private void btnRetirarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetirarCActionPerformed
-        RetirarCliente retirarc = new RetirarCliente(banco);
+        Retirar retirarc = new Retirar(banco);
         JFrame x = new JFrame();
         x.add(retirarc);
         x.pack();
@@ -275,7 +278,7 @@ public class InterfazEmpleadox extends javax.swing.JPanel {
     }//GEN-LAST:event_btnRetirarCActionPerformed
 
     private void btnTransferirCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferirCActionPerformed
-        TransferirCliente transferirc = new TransferirCliente(banco);
+        Transferir transferirc = new Transferir(banco);
         JFrame v = new JFrame();
         v.add(transferirc);
         v.pack();
